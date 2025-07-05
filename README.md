@@ -32,13 +32,13 @@ Experience BookAI in action: [Demo Link](your-demo-link-here)
 ## 📱 Screenshots
 
 ### Home Page
-![Home Page](screenshots/home.png)
+![Home Page](screenshots/HomePage.jpg)
 
-### Recommendation Results
-![Recommendations](screenshots/recommendations.png)
+### Discover Page (Recommendation Results)
+![Recommendations](screenshots/DiscoveryPage.jpg)
 
 ### Trending Books
-![Trending](screenshots/trending.png)
+![Trending](screenshots/TrendingBooks.jpg)
 
 ## 🏗️ Architecture
 
