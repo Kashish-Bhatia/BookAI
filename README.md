@@ -41,7 +41,7 @@ Experience BookAI in action: [Demo Link](your-demo-link-here)
 ![Trending](screenshots/TrendingBooks.jpg)
 
 ### Library Page
-![Trending](screenshots/LibraryPage.jpg)
+![Library Page](screenshots/LibraryPage.png)
 
 ## 🏗️ Architecture
 
