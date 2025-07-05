@@ -35,10 +35,13 @@ Experience BookAI in action: [Demo Link](your-demo-link-here)
 ![Home Page](screenshots/HomePage.jpg)
 
 ### Discover Page (Recommendation Results)
-![Recommendations](screenshots/DiscoveryPage.jpg)
+![Recommendations](screenshots/Discover_Page.jpg)
 
 ### Trending Books
 ![Trending](screenshots/TrendingBooks.jpg)
+
+### Library Page
+![Trending](screenshots/LibraryPage.jpg)
 
 ## 🏗️ Architecture
 
