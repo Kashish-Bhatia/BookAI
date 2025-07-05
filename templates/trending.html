@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trending Books - BookAI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-book-open"></i>
+                <span>BookAI</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="/" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="/#discover" class="nav-link"><i class="fas fa-compass"></i> Discover</a></li>
+                <li><a href="/library" class="nav-link"><i class="fas fa-bookmark"></i> Library</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <section class="trending-section">
+            <div class="glass-card">
+                <div class="card-header">
+                    <h2 class="section-title">
+                        <i class="fas fa-fire"></i>
+                        <span class="gradient-text">Trending Books</span>
+                    </h2>
+                    <p class="section-subtitle">Discover the most popular books right now</p>
+                </div>
+                
+                <div id="loading" class="loading">
+                    <div class="spinner"></div>
+                    <p>Loading trending books...</p>
+                </div>
+
+                <div id="trending-books" class="book-grid">
+                    <!-- Trending books will be loaded here by JavaScript -->
+                </div>
+
+                <div id="error-message" class="error-message hidden">
+                    <h3>😕 Oops!</h3>
+                    <p>Failed to load trending books. Please try again later.</p>
+                    <button onclick="loadTrendingBooksPage()" class="retry-btn">Try Again</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>BookAI. Discover your next great read! 📚<br>
+        Designed & developed by Kashish Bhatia</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script>
+        // Load trending books when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            loadTrendingBooksPage();
+        });
+    </script>
+</body>
+</html>

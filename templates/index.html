@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Recommender - AI-Powered Discovery</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-book-open"></i>
+                <span>BookAI</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#discover" class="nav-link"><i class="fas fa-compass"></i> Discover</a></li>
+                <li><a href="/library" class="nav-link"><i class="fas fa-bookmark"></i> Library</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Left Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-content">
+            <div class="sidebar-section">
+                <h3><i class="fas fa-chart-line"></i> Analytics</h3>
+                <div class="stat-card">
+                    <div class="stat-number">12K+</div>
+                    <div class="stat-label">Books Recommended</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">Satisfaction Rate</div>
+                </div>
+            </div>
+            <div class="sidebar-section">
+                <h3><i class="fas fa-users"></i> Community</h3>
+                <div class="community-item trending-now" onclick="window.location.href='/trending'">
+                    <i class="fas fa-fire"></i>
+                    <span>Trending Now</span>
+                </div>
+                <div class="community-item top-rated" onclick="window.location.href='/top-rated'">
+                    <i class="fas fa-star"></i>
+                    <span>Top Rated</span>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section" id="home">
+            <div class="hero-background">
+                <div class="cosmic-ring"></div>
+                <div class="cosmic-ring ring-2"></div>
+                <div class="floating-particles"></div>
+            </div>
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="gradient-text">Discover Your Next</span><br>
+                    <span class="gradient-text">Literary Adventure</span>
+                </h1>
+                <p class="hero-subtitle">AI-powered book recommendations tailored to your unique taste and current mood</p>
+                <button class="hero-cta" onclick="document.getElementById('discover').scrollIntoView({behavior: 'smooth'})">
+                    <i class="fas fa-magic"></i>
+                    Start Discovering
+                    <div class="button-glow"></div>
+                </button>
+            </div>
+        </section>
+
+        <!-- Discovery Section -->
+        <section class="discovery-section" id="discover">
+            <div class="glass-card">
+                <div class="card-header">
+                    <h2 class="section-title">
+                        <i class="fas fa-brain"></i>
+                        <span class="gradient-text">AI Preference Analysis</span>
+                    </h2>
+                    <p class="section-subtitle">Tell us about your reading preferences and let our AI find the perfect match</p>
+                </div>
+
+                <form id="recommendationForm" class="preference-form">
+                <div class="form-group">
+                    <label for="genre">Preferred Genre:</label>
+                    <select id="genre" name="genre" required>
+                        <option value="">Select a genre...</option>
+                        <option value="fiction">Fiction</option>
+                        <option value="mystery">Mystery</option>
+                        <option value="romance">Romance</option>
+                        <option value="sci-fi">Science Fiction</option>
+                        <option value="fantasy">Fantasy</option>
+                        <option value="biography">Biography</option>
+                        <option value="history">History</option>
+                        <option value="self-help">Self Help</option>
+                        <option value="thriller">Thriller</option>
+                        <option value="non-fiction">Non-Fiction</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="mood">Current Mood:</label>
+                    <select id="mood" name="mood" required>
+                        <option value="">How are you feeling?</option>
+                        <option value="adventurous">Adventurous</option>
+                        <option value="relaxed">Relaxed</option>
+                        <option value="thoughtful">Thoughtful</option>
+                        <option value="excited">Excited</option>
+                        <option value="nostalgic">Nostalgic</option>
+                        <option value="curious">Curious</option>
+                        <option value="inspired">Inspired</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="length">Book Length Preference:</label>
+                    <select id="length" name="length" required>
+                        <option value="">Select length...</option>
+                        <option value="short">Short (Under 200 pages)</option>
+                        <option value="medium">Medium (200-400 pages)</option>
+                        <option value="long">Long (Over 400 pages)</option>
+                        <option value="any">No preference</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="favorite-book">A Book You Loved (Optional):</label>
+                    <input type="text" id="favorite-book" name="favorite-book" placeholder="e.g., To Kill a Mockingbird">
+                </div>
+
+                <button type="submit" class="recommend-btn">
+                    <i class="fas fa-magic"></i>
+                    Get My Recommendation
+                    <div class="button-glow"></div>
+                </button>
+            </form>
+
+            <div id="loading" class="loading hidden">
+                <div class="spinner"></div>
+                <p>Finding the perfect book for you...</p>
+            </div>
+
+            <div id="recommendations" class="recommendations hidden">
+                <h2><i class="fas fa-stars"></i> Your Personalized Recommendations</h2>
+                <div id="book-list" class="book-grid">
+                    <!-- Recommendations will be inserted here -->
+                </div>
+                <button id="get-more" class="secondary-btn hidden">Get More Recommendations</button>
+            </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>BookAI. Discover your next great read! 📚<br>
+        Designed & developed by Kashish Bhatia</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
